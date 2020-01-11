@@ -1,9 +1,9 @@
 substitutions:
   plug_name: blitzwolf_shp6_04
   # Higher value gives lower watt readout
-  current_res: '0.00221'
+  current_res: '0.00290'
   # Lower value gives lower voltage readout
-  voltage_div: '955'
+  voltage_div: '940'
 
 esphome:
   name: ${plug_name}
@@ -75,13 +75,14 @@ sensor:
     voltage_divider: ${voltage_div}
     current:
       name: "${plug_name}_Amperage"
-      unit_of_measurement: A
+      unit_of_measurement: 'A'
+      accuracy_decimals: 3
     voltage:
       name: "${plug_name}_Voltage"
-      unit_of_measurement: V
+      unit_of_measurement: 'V'
     power:
       name: "${plug_name}_Wattage"
-      unit_of_measurement: W
+      unit_of_measurement: 'W'
       id: "${plug_name}_Wattage"
       on_value_range:
         - above: 1.0
